@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -25,30 +25,23 @@ class ViewController: UIViewController {
             //print(response)
             let json = response.result.value! as? NSDictionary
             let items = (json?.value(forKey: "items") as? NSArray)
+            self.arrRes = items!
             for item in items!
             //let item = items?[0] as? NSDictionary
             {
                 let tmp = item as? NSDictionary
                 print(tmp?.value(forKey: "login") as! NSString)
                 print(tmp?.value(forKey: "avatar_url") as! NSString)
-                self.arrRes.adding(tmp!)
-                var cell : UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-                if cell==nil {
-                    //cell = UITableViewCell(style: UITableViewStyle, reuseIdentifier: "cell")
-                }
-                cell.textLabel?.text = (tmp?.value(forKey: "login") as! String)
-                
-                self.tableView.reloadData()
-                
+                //self.arrRes.adding(tmp!)
             }
+            self.tableView.reloadData()
         }
     }
-    
-    
-
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -60,23 +53,16 @@ class ViewController: UIViewController {
     }
 
     
-    //override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-     //   return arrRes.count
-    //}
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrRes.count;
+    }
     
-    
-    //override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-      //  let identifier = "cell"
-      //  var cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier)! as UITableViewCell
-      //  if cell==nil {
-      //      cell.textLabel?.text = (arrRes[indexPath!.row] as! NSDictionary).value(forKey: "login") as! String
-    //    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        var item = self.arrRes[indexPath.row] as? NSDictionary
+        cell.textLabel?.text = item?.value(forKey: "login") as! String
         
-
-    //    return cell
-  //  }
-
+        return cell
+    }
+ 
 }
-
