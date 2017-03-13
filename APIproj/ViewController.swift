@@ -35,6 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 //self.arrRes.adding(tmp!)
             }
             self.tableView.reloadData()
+            
         }
     }
   
