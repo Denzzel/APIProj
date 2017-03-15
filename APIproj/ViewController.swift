@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -19,58 +20,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var arrRes = NSArray()
     
     @IBAction func SearchOK(_ sender: Any) {
-        var searchString:String = searchBar.text!
-        searchString = "https://api.github.com/search/users?q=denis"
+        let searchString:String = "https://api.github.com/search/users?q=" + searchBar.text!
         
-        Alamofire.request("https://s00.yaplakal.com/pics/pics_original/9/7/5/3282579.jpg").responseData {
-            (response) in
-            print(response)
-            if let data = response.result.value
-            {
-                //print(image!)
-                self.imageView.image = UIImage(data: data)
-                //image = UIImage(data: data)!
-                //print(image!)
-            }
-        }
-        
-        //self.imageView.image = downloadImage(urlImage: "heh")
-        //downloadJSON(searchString: searchString)
+        downloadJSON(searchString: searchString)
     }
   
-    func downloadImage(urlImage : String) -> UIImage
-    {
-        var image : UIImage? = nil
-        Alamofire.request("https://s00.yaplakal.com/pics/pics_original/9/7/5/3282579.jpg").responseData {
-        (response) in
-            print(response)
-            if let data = response.result.value
-            {
-                print(image!)
-                //self.imageView.image = UIImage(data: data)
-                image = UIImage(data: data)!
-                print(image!)
-            }
+    
+    func retrieveImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
+        return Alamofire.request(url, method: .get).responseImage { response in
+            guard let image = response.result.value else { return }
+            completion(image)
         }
-        return image!
     }
+    
     
     func downloadJSON(searchString : String)
     {
         Alamofire.request(searchString).responseJSON() {
             (response) in
-            //print(response)
             let json = response.result.value! as? NSDictionary
             let items = (json?.value(forKey: "items") as? NSArray)
             self.arrRes = items!
-            /*for item in items!
-                //let item = items?[0] as? NSDictionary
-            {
-                let tmp = item as? NSDictionary
-                print(tmp?.value(forKey: "login") as! NSString)
-                print(tmp?.value(forKey: "avatar_url") as! NSString)
-                //self.arrRes.adding(tmp!)
-            }*/
+            
             self.tableView.reloadData()
             
         }
@@ -101,8 +72,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var item = self.arrRes[indexPath.row] as? NSDictionary
         cell.textLabel?.text = item?.value(forKey: "login") as! String
         
-        let image = downloadImage(urlImage: item?.value(forKey: "avatar_url") as! String) as UIImage
-        cell.imageView?.image = image
+        retrieveImage(for: item?.value(forKey: "avatar_url") as! String) {
+            image in
+                cell.imageView?.image = image
+        }
+        
         return cell
     }
  
