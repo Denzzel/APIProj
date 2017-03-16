@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func SearchOK(_ sender: Any) {
         let searchString:String = "https://api.github.com/search/users?q=" + searchBar.text!
-        
+    
         downloadJSON(searchString: searchString)
     }
   
