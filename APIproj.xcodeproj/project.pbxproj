@@ -18,6 +18,7 @@
 		842038441E70CC0C001201FE /* APIprojTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842038431E70CC0C001201FE /* APIprojTests.swift */; };
 		8420384F1E70CC0C001201FE /* APIprojUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420384E1E70CC0C001201FE /* APIprojUITests.swift */; };
 		842038AB1E7497DE001201FE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842038AA1E7497DE001201FE /* Service.swift */; };
+		844D519B1E7EB47C0043A463 /* LoaderJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D519A1E7EB47C0043A463 /* LoaderJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		842038501E70CC0C001201FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842038751E720D00001201FE /* APIproj.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = APIproj.xcodeproj; sourceTree = "<group>"; };
 		842038AA1E7497DE001201FE /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		844D519A1E7EB47C0043A463 /* LoaderJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoaderJSON.swift; path = Services/LoaderJSON.swift; sourceTree = "<group>"; };
 		8E3CABF176882E7BE3DA971F /* Pods-APIproj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIproj.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIproj/Pods-APIproj.release.xcconfig"; sourceTree = "<group>"; };
 		F4CD0B54B3575667BE6D0318 /* Pods_APIproj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIproj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58EBB226E92FC97FA15131A /* Pods-APIproj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIproj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIproj/Pods-APIproj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				842038371E70CC0C001201FE /* LaunchScreen.storyboard */,
 				8420383A1E70CC0C001201FE /* Info.plist */,
 				842038AA1E7497DE001201FE /* Service.swift */,
+				8493B99F1E7ECF2400A9571F /* Services */,
 			);
 			path = APIproj;
 			sourceTree = "<group>";
@@ -168,6 +171,14 @@
 			children = (
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8493B99F1E7ECF2400A9571F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				844D519A1E7EB47C0043A463 /* LoaderJSON.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		ADDBC3348B6C28330350260D /* Pods */ = {
@@ -375,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844D519B1E7EB47C0043A463 /* LoaderJSON.swift in Sources */,
 				841480FF1E7739D90040C482 /* ViewController.swift in Sources */,
 				842038AB1E7497DE001201FE /* Service.swift in Sources */,
 				8420382F1E70CC0C001201FE /* AppDelegate.swift in Sources */,

@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfD-XF-VWm" id="72L-YB-wbF">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D9t-Tm-NFD">
@@ -77,6 +77,7 @@
                     <connections>
                         <outlet property="imageView" destination="PDV-Sa-Rts" id="EeE-kB-Q4R"/>
                         <outlet property="searchBar" destination="pAU-3x-al1" id="QG9-EK-QAD"/>
+                        <outlet property="segmentedControl" destination="KkH-1C-BeO" id="Y60-UA-wyl"/>
                         <outlet property="tableView" destination="ghf-MB-MIc" id="52c-0a-pY1"/>
                     </connections>
                 </viewController>
