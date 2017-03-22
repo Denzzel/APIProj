@@ -11,23 +11,25 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
+    //@IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    var arrRes = NSArray()
+    public var arrRes = NSArray()
+    var cellIndex : intptr_t = 0
     
     @IBAction func SearchOK(_ sender: Any) {
-        
         if (segmentedControl.selectedSegmentIndex == 0)
         {
             let searchString:String = "https://itunes.apple.com/search?term=" + searchBar.text!
-            DownloaderJSON.downloadJSON(searchString: searchString, ItemKey: "results") {
+            DownloaderJSON.sharedInstance.downloadJSON(searchString: searchString, ItemKey: "results") {
                 items in
                 self.arrRes = items
+                //self.viewContainer.
                 self.tableView.reloadData()
             }
             
@@ -35,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else
         {
             let searchString:String = "https://api.github.com/search/users?q=" + searchBar.text!
-            DownloaderJSON.downloadJSON(searchString: searchString, ItemKey: "items") {
+            DownloaderJSON.sharedInstance.downloadJSON(searchString: searchString, ItemKey: "items") {
                 items in
                 self.arrRes = items
                 self.tableView.reloadData()
@@ -47,12 +49,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrRes.count;
@@ -65,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (self.segmentedControl.selectedSegmentIndex == 0)
         {
             cell.textLabel?.text = item?.value(forKey: "artistName") as! String
-            DownloaderImage.retrieveImage(for: item?.value(forKey: "artworkUrl100") as! String) {
+            DownloaderImage.sharedInstance.retrieveImage(for: item?.value(forKey: "artworkUrl100") as! String) {
                 image in
                 cell.imageView?.image = image
             }
@@ -73,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else
         {
             cell.textLabel?.text = item?.value(forKey: "login") as! String
-            DownloaderImage.retrieveImage(for: item?.value(forKey: "avatar_url") as! String) {
+            DownloaderImage.sharedInstance.retrieveImage(for: item?.value(forKey: "avatar_url") as! String) {
                 image in
                 cell.imageView?.image = image
             }
@@ -81,6 +83,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  (segue.identifier == "ShowDetails")
+        {
+            let destination = segue.destination as? DetailViewController
+            destination?.detailInfo = (self.arrRes[cellIndex] as? NSDictionary)!
+            destination?.identifier = self.segmentedControl.selectedSegmentIndex
+            
+        }
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("BUGAGA")
+        self.cellIndex = indexPath.row
+        performSegue(withIdentifier: "ShowDetails", sender: Any?.self)
     }
     
 }

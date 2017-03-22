@@ -11,7 +11,9 @@ import Alamofire
 
 class DownloaderJSON : NSObject {
 
-    static func downloadJSON(searchString : String, ItemKey: String, completion: @escaping (NSArray) -> Void) {
+    static let sharedInstance = DownloaderJSON()
+    
+    public func downloadJSON(searchString : String, ItemKey: String, completion: @escaping (NSArray) -> Void) {
         Alamofire.request(searchString).responseJSON {
             response in
             guard let json = response.result.value! as? NSDictionary else { return }
