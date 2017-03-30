@@ -20,6 +20,13 @@
 		84318A041E7F3DEF00F27FFA /* DownloaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84318A031E7F3DEF00F27FFA /* DownloaderImage.swift */; };
 		84318A081E808C4800F27FFA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84318A071E808C4800F27FFA /* DetailViewController.swift */; };
 		844D519B1E7EB47C0043A463 /* DownloaderJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D519A1E7EB47C0043A463 /* DownloaderJSON.swift */; };
+		84620C191E887B6F00F1CDDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C181E887B6F00F1CDDF /* User.swift */; };
+		84620C1D1E8AA80D00F1CDDF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C1C1E8AA80D00F1CDDF /* UserData.swift */; };
+		84620C1F1E8ABD7C00F1CDDF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C1E1E8ABD7C00F1CDDF /* DataService.swift */; };
+		84620C231E8C76A100F1CDDF /* ITunesUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C221E8C76A100F1CDDF /* ITunesUser.swift */; };
+		84620C251E8C797000F1CDDF /* DBservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C241E8C797000F1CDDF /* DBservice.swift */; };
+		84620C291E8C79F900F1CDDF /* ParserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C281E8C79F900F1CDDF /* ParserData.swift */; };
+		84620C2B1E8C7A0700F1CDDF /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C2A1E8C7A0700F1CDDF /* GitHubUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +79,13 @@
 		84318A031E7F3DEF00F27FFA /* DownloaderImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DownloaderImage.swift; path = Services/DownloaderImage.swift; sourceTree = "<group>"; };
 		84318A071E808C4800F27FFA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		844D519A1E7EB47C0043A463 /* DownloaderJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DownloaderJSON.swift; path = Services/DownloaderJSON.swift; sourceTree = "<group>"; };
+		84620C181E887B6F00F1CDDF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		84620C1C1E8AA80D00F1CDDF /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Models/UserData.swift; sourceTree = "<group>"; };
+		84620C1E1E8ABD7C00F1CDDF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataService.swift; path = Services/DataService.swift; sourceTree = "<group>"; };
+		84620C221E8C76A100F1CDDF /* ITunesUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITunesUser.swift; path = Models/ITunesUser.swift; sourceTree = "<group>"; };
+		84620C241E8C797000F1CDDF /* DBservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBservice.swift; path = Services/DBservice.swift; sourceTree = "<group>"; };
+		84620C281E8C79F900F1CDDF /* ParserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserData.swift; path = Models/ParserData.swift; sourceTree = "<group>"; };
+		84620C2A1E8C7A0700F1CDDF /* GitHubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubUser.swift; path = Models/GitHubUser.swift; sourceTree = "<group>"; };
 		8E3CABF176882E7BE3DA971F /* Pods-APIproj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIproj.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIproj/Pods-APIproj.release.xcconfig"; sourceTree = "<group>"; };
 		F4CD0B54B3575667BE6D0318 /* Pods_APIproj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIproj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58EBB226E92FC97FA15131A /* Pods-APIproj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIproj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIproj/Pods-APIproj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +152,7 @@
 		8420382D1E70CC0C001201FE /* APIproj */ = {
 			isa = PBXGroup;
 			children = (
+				84620C171E887B2800F1CDDF /* Models */,
 				8420382E1E70CC0C001201FE /* AppDelegate.swift */,
 				841480FE1E7739D90040C482 /* ViewController.swift */,
 				84318A071E808C4800F27FFA /* DetailViewController.swift */,
@@ -175,11 +190,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		84620C171E887B2800F1CDDF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84620C181E887B6F00F1CDDF /* User.swift */,
+				84620C1C1E8AA80D00F1CDDF /* UserData.swift */,
+				84620C2A1E8C7A0700F1CDDF /* GitHubUser.swift */,
+				84620C281E8C79F900F1CDDF /* ParserData.swift */,
+				84620C221E8C76A100F1CDDF /* ITunesUser.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		8493B99F1E7ECF2400A9571F /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				844D519A1E7EB47C0043A463 /* DownloaderJSON.swift */,
 				84318A031E7F3DEF00F27FFA /* DownloaderImage.swift */,
+				84620C1E1E8ABD7C00F1CDDF /* DataService.swift */,
+				84620C241E8C797000F1CDDF /* DBservice.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -389,9 +418,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84620C231E8C76A100F1CDDF /* ITunesUser.swift in Sources */,
 				844D519B1E7EB47C0043A463 /* DownloaderJSON.swift in Sources */,
+				84620C1D1E8AA80D00F1CDDF /* UserData.swift in Sources */,
+				84620C1F1E8ABD7C00F1CDDF /* DataService.swift in Sources */,
+				84620C291E8C79F900F1CDDF /* ParserData.swift in Sources */,
+				84620C2B1E8C7A0700F1CDDF /* GitHubUser.swift in Sources */,
 				841480FF1E7739D90040C482 /* ViewController.swift in Sources */,
+				84620C191E887B6F00F1CDDF /* User.swift in Sources */,
 				84318A081E808C4800F27FFA /* DetailViewController.swift in Sources */,
+				84620C251E8C797000F1CDDF /* DBservice.swift in Sources */,
 				84318A041E7F3DEF00F27FFA /* DownloaderImage.swift in Sources */,
 				8420382F1E70CC0C001201FE /* AppDelegate.swift in Sources */,
 			);
