@@ -30,11 +30,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             us  = GitHubUser()
         }
-        
-        us.getUsersFromJSON(querry: searchBar.text!) {
-            users in
-            self.arrUsers = users
-            DBservice.sharedInstance.writeArrayOfUsers(users: users)
+        if (Connection.sharedInstance.isInternetAvailable()) {
+            us.getUsersFromJSON(querry: searchBar.text!) {
+                users in
+                self.arrUsers = users
+                DBservice.sharedInstance.crearDB()
+                DBservice.sharedInstance.writeArrayOfUsers(users: users)
+                self.tableView.reloadData()
+            }
+        }
+        else {
+            arrUsers = DBservice.sharedInstance.getCashedUsers()
             self.tableView.reloadData()
         }
     }
