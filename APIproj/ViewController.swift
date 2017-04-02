@@ -22,21 +22,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func SearchOK(_ sender: Any) {
        // let realm = try! Realm()
         var us : User = User()
-        if (segmentedControl.selectedSegmentIndex == 0)
-        {
-            us = ITunesUser()
-        }
-        else
-        {
-            us  = GitHubUser()
-        }
         if (Connection.sharedInstance.isInternetAvailable()) {
-            us.getUsersFromJSON(querry: searchBar.text!) {
-                users in
-                self.arrUsers = users
-                DBservice.sharedInstance.crearDB()
-                DBservice.sharedInstance.writeArrayOfUsers(users: users)
-                self.tableView.reloadData()
+            if (segmentedControl.selectedSegmentIndex == 0)
+            {
+                DataService.sharedInstance.getItunesUsersFromJSON(querry: searchBar.text!) {
+                    users in
+                    self.arrUsers = users
+                    DBservice.sharedInstance.crearDB()
+                    DBservice.sharedInstance.writeArrayOfUsers(users: users)
+                    self.tableView.reloadData()
+                }
+            }
+            else
+            {
+                DataService.sharedInstance.getGitUsersFromJSON(querry: searchBar.text!) {
+                    users in
+                    self.arrUsers = users
+                    DBservice.sharedInstance.crearDB()
+                    DBservice.sharedInstance.writeArrayOfUsers(users: users)
+                    self.tableView.reloadData()
+                }
             }
         }
         else {

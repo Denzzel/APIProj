@@ -23,10 +23,8 @@
 		84620C191E887B6F00F1CDDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C181E887B6F00F1CDDF /* User.swift */; };
 		84620C1D1E8AA80D00F1CDDF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C1C1E8AA80D00F1CDDF /* UserData.swift */; };
 		84620C1F1E8ABD7C00F1CDDF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C1E1E8ABD7C00F1CDDF /* DataService.swift */; };
-		84620C231E8C76A100F1CDDF /* ITunesUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C221E8C76A100F1CDDF /* ITunesUser.swift */; };
 		84620C251E8C797000F1CDDF /* DBservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C241E8C797000F1CDDF /* DBservice.swift */; };
 		84620C291E8C79F900F1CDDF /* ParserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C281E8C79F900F1CDDF /* ParserData.swift */; };
-		84620C2B1E8C7A0700F1CDDF /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C2A1E8C7A0700F1CDDF /* GitHubUser.swift */; };
 		84620C2D1E8DD84300F1CDDF /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84620C2C1E8DD84300F1CDDF /* Connection.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,10 +81,8 @@
 		84620C181E887B6F00F1CDDF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		84620C1C1E8AA80D00F1CDDF /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Models/UserData.swift; sourceTree = "<group>"; };
 		84620C1E1E8ABD7C00F1CDDF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataService.swift; path = Services/DataService.swift; sourceTree = "<group>"; };
-		84620C221E8C76A100F1CDDF /* ITunesUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITunesUser.swift; path = Models/ITunesUser.swift; sourceTree = "<group>"; };
 		84620C241E8C797000F1CDDF /* DBservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBservice.swift; path = Services/DBservice.swift; sourceTree = "<group>"; };
 		84620C281E8C79F900F1CDDF /* ParserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserData.swift; path = Models/ParserData.swift; sourceTree = "<group>"; };
-		84620C2A1E8C7A0700F1CDDF /* GitHubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubUser.swift; path = Models/GitHubUser.swift; sourceTree = "<group>"; };
 		84620C2C1E8DD84300F1CDDF /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Services/Connection.swift; sourceTree = "<group>"; };
 		8E3CABF176882E7BE3DA971F /* Pods-APIproj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIproj.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIproj/Pods-APIproj.release.xcconfig"; sourceTree = "<group>"; };
 		F4CD0B54B3575667BE6D0318 /* Pods_APIproj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIproj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,9 +193,7 @@
 			children = (
 				84620C181E887B6F00F1CDDF /* User.swift */,
 				84620C1C1E8AA80D00F1CDDF /* UserData.swift */,
-				84620C2A1E8C7A0700F1CDDF /* GitHubUser.swift */,
 				84620C281E8C79F900F1CDDF /* ParserData.swift */,
-				84620C221E8C76A100F1CDDF /* ITunesUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -421,12 +415,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84620C231E8C76A100F1CDDF /* ITunesUser.swift in Sources */,
 				844D519B1E7EB47C0043A463 /* DownloaderJSON.swift in Sources */,
 				84620C1D1E8AA80D00F1CDDF /* UserData.swift in Sources */,
 				84620C1F1E8ABD7C00F1CDDF /* DataService.swift in Sources */,
 				84620C291E8C79F900F1CDDF /* ParserData.swift in Sources */,
-				84620C2B1E8C7A0700F1CDDF /* GitHubUser.swift in Sources */,
 				841480FF1E7739D90040C482 /* ViewController.swift in Sources */,
 				84620C191E887B6F00F1CDDF /* User.swift in Sources */,
 				84318A081E808C4800F27FFA /* DetailViewController.swift in Sources */,
