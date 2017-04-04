@@ -5,6 +5,6 @@ import RealmSwift
 
 class GitHubUser : User {
     
-    
+    //var
     
 }

@@ -56,4 +56,9 @@ class DBservice {
         return users
     }
     
+    public func writeArrayOfUsersWithClear(users : [User]) {
+        DBservice.sharedInstance.crearDB()
+        DBservice.sharedInstance.writeArrayOfUsers(users: users)
+    }
+    
 }

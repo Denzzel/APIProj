@@ -19,35 +19,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var arrUsers : [User] = []
     var cellIndex : intptr_t = 0
     
+    func function (users :  [User])
+    {
+        self.arrUsers = users
+        self.tableView.reloadData()
+    }
+    
     @IBAction func SearchOK(_ sender: Any) {
        // let realm = try! Realm()
-        var us : User = User()
-        if (Connection.sharedInstance.isInternetAvailable()) {
             if (segmentedControl.selectedSegmentIndex == 0)
             {
                 DataService.sharedInstance.getItunesUsersFromJSON(querry: searchBar.text!) {
                     users in
-                    self.arrUsers = users
-                    DBservice.sharedInstance.crearDB()
-                    DBservice.sharedInstance.writeArrayOfUsers(users: users)
-                    self.tableView.reloadData()
+                    self.function(users: users)
                 }
             }
             else
             {
                 DataService.sharedInstance.getGitUsersFromJSON(querry: searchBar.text!) {
                     users in
-                    self.arrUsers = users
-                    DBservice.sharedInstance.crearDB()
-                    DBservice.sharedInstance.writeArrayOfUsers(users: users)
-                    self.tableView.reloadData()
+                    self.function(users: users)
                 }
             }
-        }
-        else {
-            arrUsers = DBservice.sharedInstance.getCashedUsers()
-            self.tableView.reloadData()
-        }
     }
 
     override func viewDidLoad() {
